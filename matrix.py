@@ -14,6 +14,8 @@ class Matrix:
                 for j in range(self.col):
                     C.t[i][j]=self.t[i][j]+m.t[i][j]
             return C
+        else:
+            return None
 
     def sub(self, m):
         """return a new Matrix object after substraction"""
@@ -22,7 +24,9 @@ class Matrix:
             for i in range(m.row):
                 for j in range(m.col):
                     C.t[i][j]=self.t[i][j]-m.t[i][j]
-            return C      
+            return C
+        else:
+            return None
  
     def mul(self, m):
         """return a new Matrix object after multiplication"""
@@ -34,6 +38,8 @@ class Matrix:
                     for k in range(self.col):
                         C.t[i][j] += self.t[i][k] * m.t[k][j]
             return C
+        else:
+            return None
     
     def transpose(self):
         """return a new Matrix object after transpose"""
@@ -64,14 +70,34 @@ print("Matrix B")
 B.display()
 
 print("==============A+B=============")
-A.add(B).display()
+A.add(B)
+if A.add(B)==None:
+    print("Matrix'size should be in the same size")
+    pass
+else:
+    A.add(B).display()
 
 print("==============A-B==============")
-A.sub(B).display()
+A.sub(B)
+if A.sub(B)==None:
+    print("Matrix'size should be in the same size")
+    pass
+else:
+    A.sub(B).display()
 
 print("=============A*B==============")
-A.mul(B).display()
-result = A.mul(B)
+A.mul(B)
+if A.mul(B)==None:
+    print("AB矩陣相乘:A的cols需與B的rows相等")
+    pass
+else:
+    A.mul(B).display()
+    result = A.mul(B)
 
 print("=====the transpose of A*B=====")
-result.transpose().display()
+A.mul(B)
+if A.mul(B)==None:
+    print("A*B已出錯，無法產生transpose of A*B")
+    pass
+else:
+    result.transpose().display()
