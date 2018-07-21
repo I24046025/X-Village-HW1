@@ -77,7 +77,6 @@ while True:
         B.display()
 
         print("==============A+B=============")
-        A.add(B)
         if A.add(B)==None:
             print("Matrix'size should be in the same size")
             pass
@@ -85,7 +84,6 @@ while True:
             A.add(B).display()
 
         print("==============A-B==============")
-        A.sub(B)
         if A.sub(B)==None:
             print("Matrix'size should be in the same size")
             pass
@@ -93,7 +91,6 @@ while True:
             A.sub(B).display()
 
         print("=============A*B==============")
-        A.mul(B)
         if A.mul(B)==None:
             print("AB矩陣相乘:A的cols需與B的rows相等")
             pass
@@ -102,7 +99,6 @@ while True:
             result = A.mul(B)
 
         print("=====the transpose of A*B=====")
-        A.mul(B)
         if A.mul(B)==None:
             print("A*B已出錯，無法產生transpose of A*B")
             pass
