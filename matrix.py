@@ -56,48 +56,55 @@ class Matrix:
                  print("%4d" % self.t[i][j], end=' ')
             print()
                
-a_row=int(input("Enter A matrix's rows: "))
-a_col=int(input("Enter A matrix's cols: "))
-b_row=int(input("Enter B matrix's rows: "))
-b_col=int(input("Enter B matrix's cols: "))
+while True:
+    try:              
+        a_row=int(input("Enter A matrix's rows: "))
+        a_col=int(input("Enter A matrix's cols: "))
+        b_row=int(input("Enter B matrix's rows: "))
+        b_col=int(input("Enter B matrix's cols: "))
+        if a_row==b_row and a_col==b_row:
+            break
+        else:
+            print("="*30)
+            print("A與B的col相等、A與B的row相等，才能跳出程式喔～")
+    finally:
+        A=Matrix(a_row,a_col)
+        B=Matrix(b_row,b_col)
+        result=Matrix(a_row,b_col)
+        print("Matrix A")
+        A.display()
+        print("Matrix B")
+        B.display()
 
-A=Matrix(a_row,a_col)
-B=Matrix(b_row,b_col)
-result=Matrix(a_row,b_col)
-print("Matrix A")
-A.display()
-print("Matrix B")
-B.display()
+        print("==============A+B=============")
+        A.add(B)
+        if A.add(B)==None:
+            print("Matrix'size should be in the same size")
+            pass
+        else:
+            A.add(B).display()
 
-print("==============A+B=============")
-A.add(B)
-if A.add(B)==None:
-    print("Matrix'size should be in the same size")
-    pass
-else:
-    A.add(B).display()
+        print("==============A-B==============")
+        A.sub(B)
+        if A.sub(B)==None:
+            print("Matrix'size should be in the same size")
+            pass
+        else:
+            A.sub(B).display()
 
-print("==============A-B==============")
-A.sub(B)
-if A.sub(B)==None:
-    print("Matrix'size should be in the same size")
-    pass
-else:
-    A.sub(B).display()
+        print("=============A*B==============")
+        A.mul(B)
+        if A.mul(B)==None:
+            print("AB矩陣相乘:A的cols需與B的rows相等")
+            pass
+        else:
+            A.mul(B).display()
+            result = A.mul(B)
 
-print("=============A*B==============")
-A.mul(B)
-if A.mul(B)==None:
-    print("AB矩陣相乘:A的cols需與B的rows相等")
-    pass
-else:
-    A.mul(B).display()
-    result = A.mul(B)
-
-print("=====the transpose of A*B=====")
-A.mul(B)
-if A.mul(B)==None:
-    print("A*B已出錯，無法產生transpose of A*B")
-    pass
-else:
-    result.transpose().display()
+        print("=====the transpose of A*B=====")
+        A.mul(B)
+        if A.mul(B)==None:
+            print("A*B已出錯，無法產生transpose of A*B")
+            pass
+        else:
+            result.transpose().display()
