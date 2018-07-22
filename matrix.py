@@ -62,7 +62,7 @@ while True:
         a_col=int(input("Enter A matrix's cols: "))
         b_row=int(input("Enter B matrix's rows: "))
         b_col=int(input("Enter B matrix's cols: "))
-        if a_row==b_row and a_col==b_row:
+        if a_row==b_row and a_col==b_col:
             break
         else:
             print("="*30)
